@@ -12,6 +12,8 @@ using Thinktecture.IdentityServer.Repositories.Sql;
 
 namespace Thinktecture.IdentityServer.Web
 {
+    using App_Start;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         [Import]
@@ -42,6 +44,7 @@ namespace Thinktecture.IdentityServer.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes, ConfigurationRepository, UserRepository);
             ProtocolConfig.RegisterProtocols(GlobalConfiguration.Configuration, RouteTable.Routes, ConfigurationRepository, UserRepository, RelyingPartyRepository);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
         }
 
         private void SetupCompositionContainer()
