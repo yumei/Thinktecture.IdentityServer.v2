@@ -73,7 +73,7 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -83,6 +83,9 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\..\..\packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
@@ -105,9 +108,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Thinktecture.IdentityModel, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Thinktecture.IdentityModel, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Thinktecture.IdentityModel.2.4.2\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+      <HintPath>..\..\..\packages\Thinktecture.IdentityModel.3.4.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -119,14 +122,19 @@
     <Compile Include="Helper\X509Certificates.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientCertificate.cs" />
+    <Compile Include="Models\ClientSecretTypes.cs" />
     <Compile Include="Models\CodeToken.cs" />
     <Compile Include="Models\CodeTokenType.cs" />
     <Compile Include="Models\Configuration\AdfsIntegrationConfiguration.cs" />
+    <Compile Include="Models\Configuration\OpenIdConnectConfiguration.cs" />
     <Compile Include="Models\Configuration\SimpleHttpConfiguration.cs" />
     <Compile Include="Models\Configuration\KeyMaterialConfiguration.cs" />
     <Compile Include="Models\Configuration\OAuth2Configuration.cs" />
     <Compile Include="Models\Configuration\FederationMetadataConfiguration.cs" />
     <Compile Include="Models\Configuration\ProtocolConfiguration.cs" />
+    <Compile Include="Models\OpenIdConnectClient.cs" />
+    <Compile Include="Models\OpenIdConnectFlows.cs" />
+    <Compile Include="Models\StoredGrant.cs" />
     <Compile Include="Models\OAuth2ProviderTypes.cs" />
     <Compile Include="Models\DelegationSetting.cs" />
     <Compile Include="Endpoints.cs" />
@@ -134,6 +142,9 @@
     <Compile Include="Models\IdentityProvider.cs" />
     <Compile Include="Models\IdentityProviderTypes.cs" />
     <Compile Include="Models\Configuration\DiagnosticsConfiguration.cs" />
+    <Compile Include="Models\StoredGrantType.cs" />
+    <Compile Include="Models\TokenType.cs" />
+    <Compile Include="Repositories\IOpenIdConnectClientsRepository.cs" />
     <Compile Include="Repositories\IClientsRepository.cs" />
     <Compile Include="Repositories\ICodeTokenRepository.cs" />
     <Compile Include="Repositories\IConfigurationRepository.cs" />
@@ -142,6 +153,7 @@
     <Compile Include="Repositories\IClientCertificatesRepository.cs" />
     <Compile Include="Repositories\ICacheRepository.cs" />
     <Compile Include="Repositories\IDelegationRepository.cs" />
+    <Compile Include="Repositories\IStoredGrantRepository.cs" />
     <Compile Include="Repositories\IIdentityProviderRepository.cs" />
     <Compile Include="Models\Configuration\GlobalConfiguration.cs" />
     <Compile Include="Models\Configuration\WSTrustConfiguration.cs" />
