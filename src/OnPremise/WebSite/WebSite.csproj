@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{060A3A55-69D0-4526-8372-8C400CFEC8CC}</ProjectGuid>
+    <ProjectGuid>{17B74DDC-0EE5-45B9-9D20-2055587AD759}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -1275,7 +1275,20 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Thinktecture.IdentityServer.Core.Repositories\Thinktecture.IdentityServer.Core.Repositories.csproj">
+      <Project>{346a0c84-b70d-4ebd-9c26-d3858d3b24e6}</Project>
+      <Name>Thinktecture.IdentityServer.Core.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Thinktecture.IdentityServer.Core\Thinktecture.IdentityServer.Core.csproj">
+      <Project>{c10c30ef-8e8f-4acb-b220-de22461fd167}</Project>
+      <Name>Thinktecture.IdentityServer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Thinktecture.IdentityServer.Protocols\Thinktecture.IdentityServer.Protocols.csproj">
+      <Project>{05a56d09-1773-403f-bdc4-36c595a157a7}</Project>
+      <Name>Thinktecture.IdentityServer.Protocols</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Configure.cshtml.fr.resx">
       <DependentUpon>Configure.cshtml.resx</DependentUpon>

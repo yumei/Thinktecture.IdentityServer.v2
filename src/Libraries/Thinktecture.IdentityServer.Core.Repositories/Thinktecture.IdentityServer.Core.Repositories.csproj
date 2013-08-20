@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9658F86F-3059-4731-9EB0-5F67A4FF1A8A}</ProjectGuid>
+    <ProjectGuid>{346A0C84-B70D-4EBD-9C26-D3858D3B24E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Thinktecture.IdentityServer.Core.Repositories</RootNamespace>
@@ -246,7 +246,12 @@
       <LastGenOutput>Mappings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Thinktecture.IdentityServer.Core\Thinktecture.IdentityServer.Core.csproj">
+      <Project>{c10c30ef-8e8f-4acb-b220-de22461fd167}</Project>
+      <Name>Thinktecture.IdentityServer.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Migrations.SqlCe\Sql\201301011818314_InitialMigration.sql" />
     <Content Include="Migrations.SqlCe\Sql\201302041416106_RefreshToken.sql" />
