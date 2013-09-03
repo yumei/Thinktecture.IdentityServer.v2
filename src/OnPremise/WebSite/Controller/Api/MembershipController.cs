@@ -16,8 +16,8 @@
 
     #endregion
 
-    //[ClaimsAuthorize(Constants.Actions.Administration, Constants.Resources.General)] //TODO: why ClaimsAuthorize not working?
-    //[Authorize]
+    //[ClaimsAuthorize(Constants.Actions.Administration, Constants.Resources.General)] 
+    [Authorize]
     public class MembershipController : ApiController
     {
         public HttpResponseMessage Get(string username)

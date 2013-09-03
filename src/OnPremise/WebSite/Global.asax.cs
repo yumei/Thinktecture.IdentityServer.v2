@@ -44,7 +44,7 @@ namespace Thinktecture.IdentityServer.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes, ConfigurationRepository, UserRepository);
             ProtocolConfig.RegisterProtocols(GlobalConfiguration.Configuration, RouteTable.Routes, ConfigurationRepository, UserRepository, RelyingPartyRepository);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            WebApiConfig.Register(GlobalConfiguration.Configuration, ConfigurationRepository);
         }
 
         private void SetupCompositionContainer()

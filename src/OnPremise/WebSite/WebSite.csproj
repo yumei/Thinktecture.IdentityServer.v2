@@ -706,6 +706,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SignInModel.resx</DependentUpon>
     </Compile>
+    <Compile Include="Security\IdentityServerHttpAuthentication.cs" />
     <Compile Include="Utility\HtmlHelpers.cs" />
     <Compile Include="ViewModels\InitialConfigurationModel.cs" />
     <Compile Include="ViewModels\MembershipUserDto.cs" />
