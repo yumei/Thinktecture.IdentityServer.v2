@@ -34,8 +34,13 @@
         {
             const string audience = "api/";
             var issuerUri = configurationRepository.Global.IssuerUri;
-            var signingKey = configurationRepository.Keys.SigningCertificate.Thumbprint;
+            if (configurationRepository.Keys.SigningCertificate == null)
+            {
+                //Note: when set up Identity server 1st time, it goes here. After the initial configuration, please re-start IIS to make sure the following code executed.
+                return null;
+            }
 
+            var signingKey = configurationRepository.Keys.SigningCertificate.Thumbprint;
             var authenticationConfiguration = new AuthenticationConfiguration
                 {
                     ClaimsAuthenticationManager = new ClaimsTransformer(),
@@ -52,11 +57,10 @@
                             SigningKey = Encoding.UTF8.GetBytes(signingKey),
                         }
                 };
-
-            authenticationConfiguration.AddBasicAuthentication(Membership.ValidateUser);
-
             // IdentityServer JWT
             authenticationConfiguration.AddJsonWebToken(issuerUri, audience, signingKey);
+
+            authenticationConfiguration.AddBasicAuthentication(Membership.ValidateUser);
 
             //Client Certificates
             authenticationConfiguration.AddClientCertificate(ClientCertificateMode.ChainValidation);

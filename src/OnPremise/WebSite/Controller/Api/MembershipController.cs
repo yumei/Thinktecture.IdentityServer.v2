@@ -10,14 +10,15 @@
     using System.Net.Mail;
     using System.Text;
     using System.Threading;
+    using System.Web.Configuration;
     using System.Web.Http;
     using System.Web.Security;
+    using IdentityModel.Authorization.WebApi;
     using ViewModels;
 
     #endregion
 
-    //[ClaimsAuthorize(Constants.Actions.Administration, Constants.Resources.General)] 
-    [Authorize]
+    [ClaimsAuthorize(Constants.Actions.WebApi, Constants.Resources.General)] 
     public class MembershipController : ApiController
     {
         public HttpResponseMessage Get(string username)
@@ -188,23 +189,20 @@
             var body = string.Format(EmailTemplate.PasswordSetupMessage, fullname, user.UserName.ToLower(), password);
             using (var message = new MailMessage
                 {
-                    From = new MailAddress("PROCenter.fei@gmail.com"),
-                    Subject = "Welcome to PRO Center",
+                    Subject = WebConfigurationManager.AppSettings["EmailWelcomeSubject"],
                     Body = body,
                     BodyEncoding = Encoding.UTF8,
                     IsBodyHtml = true,
                 })
             {
                 message.To.Add(new MailAddress(user.Email));
-                message.CC.Add(new MailAddress("yu.mei@feisystems.com"));
+                var cc = WebConfigurationManager.AppSettings["EmailCC"];
+                if (!string.IsNullOrWhiteSpace(cc))
+                {
+                    message.CC.Add(new MailAddress(cc));
+                }
 
-                var smtp = new SmtpClient
-                    {
-                        Host = "smtp.gmail.com",
-                        Port = 587,
-                        EnableSsl = true,
-                        Credentials = new NetworkCredential(message.From.Address, "Alt~t0Navigate")
-                    };
+                var smtp = new SmtpClient();
                 ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
                 smtp.Send(message);
             }
